@@ -3,133 +3,177 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3 Dziennie — Kampania społeczna</title>
-  <meta name="description" content="3 Dziennie — codziennie około 3 dzieci w Polsce słyszy diagnozę nowotworu. Dołącz do akcji." />
+  <title>3 Dziennie — kampania społeczna</title>
+  <meta name="description" content="3 Dziennie — codziennie około 3 dzieci w Polsce słyszy diagnozę nowotworu. Dołącz do akcji i podpisz petycję." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
   <style>
     :root {
       --bg: #f8f6f2;
       --surface: #fffdfa;
       --surface-soft: #fff4ef;
-      --text: #101010;
-      --muted: #6b7280;
-      --accent: #d53a3a;
-      --accent-soft: #f9e0dd;
-      --secondary: #342b48;
-      --line: rgba(16, 16, 16, 0.1);
-      --shadow-sm: 0 8px 24px rgba(52, 43, 72, 0.08);
-      --shadow-md: 0 14px 36px rgba(52, 43, 72, 0.1);
-      --radius-lg: 24px;
-      --radius-md: 16px;
+      --text: #101827;
+      --muted: #667085;
+      --accent: #d63a3a;
+      --accent-dark: #b42e2e;
+      --accent-soft: #fbe6e4;
+      --ink-soft: #2b3140;
+      --line: rgba(16, 24, 39, 0.11);
+      --shadow-sm: 0 8px 22px rgba(16, 24, 39, 0.06);
+      --shadow-md: 0 16px 36px rgba(16, 24, 39, 0.09);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
       --container: min(1120px, calc(100% - 2rem));
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+
     body {
       font-family: "Inter", system-ui, -apple-system, sans-serif;
-      color: var(--text);
       background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
       text-rendering: optimizeLegibility;
     }
 
     a { color: inherit; text-decoration: none; }
+    img, video { display: block; max-width: 100%; }
+
     .container { width: var(--container); margin-inline: auto; }
-    section { padding: clamp(3.2rem, 7vw, 5.6rem) 0; }
+    section { padding: clamp(3.2rem, 7vw, 5.4rem) 0; }
 
     h1, h2, h3 {
       font-family: "Space Grotesk", "Inter", sans-serif;
-      line-height: 1.08;
       letter-spacing: -0.02em;
-      color: #161616;
+      line-height: 1.1;
+      color: #161b27;
+    }
+
+    .section-title {
+      margin-top: .75rem;
+      margin-bottom: .8rem;
+      font-size: clamp(1.72rem, 5vw, 2.85rem);
+    }
+
+    .section-lead {
+      color: var(--muted);
+      max-width: 68ch;
+      font-size: clamp(1rem, 2.1vw, 1.08rem);
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: .5rem;
-      font-size: .78rem;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      font-weight: 700;
-      color: var(--secondary);
+      gap: .45rem;
       background: #fff;
       border: 1px solid var(--line);
       border-radius: 999px;
-      padding: .45rem .8rem;
-    }
-
-    .section-title {
-      font-size: clamp(1.7rem, 5vw, 2.9rem);
-      margin-top: .85rem;
-      margin-bottom: .75rem;
-    }
-
-    .section-lead {
-      color: var(--muted);
-      max-width: 62ch;
+      padding: .43rem .75rem;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #3c2f53;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: .4rem;
       min-height: 46px;
-      padding: .8rem 1.2rem;
       border-radius: 999px;
-      font-weight: 700;
+      padding: .8rem 1.24rem;
       border: 1px solid transparent;
+      font-weight: 700;
       cursor: pointer;
       transition: transform .2s ease, background .2s ease;
     }
 
     .btn:hover { transform: translateY(-1px); }
+
     .btn:focus-visible,
-    a:focus-visible {
-      outline: 3px solid rgba(213, 58, 58, .35);
+    a:focus-visible,
+    input:focus-visible {
+      outline: 3px solid rgba(214, 58, 58, .3);
       outline-offset: 3px;
     }
 
     .btn-primary {
       background: var(--accent);
       color: #fff;
-      box-shadow: 0 8px 20px rgba(213, 58, 58, .24);
+      box-shadow: 0 8px 20px rgba(214, 58, 58, 0.22);
     }
+
+    .btn-primary:hover { background: var(--accent-dark); }
 
     .btn-secondary {
       background: #fff;
+      color: #253046;
       border-color: var(--line);
-      color: #1f2937;
     }
+
+    .btn-secondary:hover { background: #f8fafc; }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 1.15rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cards-grid {
+      margin-top: 1.45rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .section-soft { background: var(--surface-soft); }
 
     /* Navbar */
     .nav {
       position: sticky;
       top: 0;
-      z-index: 40;
+      z-index: 50;
       backdrop-filter: blur(10px);
       background: rgba(248, 246, 242, 0.88);
       border-bottom: 1px solid var(--line);
     }
 
     .nav-inner {
-      min-height: 74px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
+      gap: .9rem;
     }
 
-.logo img {
-  height: 48px;   /* to jest sweet spot */
-  width: auto;
-  display: block;
+.logo {
+  display: flex;
+  align-items: center;
 }
 
-/* żeby menu się nie wciskało */
+.logo img {
+  height: 42px; /* możesz podbić do 48–56 jeśli chcesz bardziej premium */
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* opcjonalnie — żeby navbar był bardziej clean */
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* żeby menu nie wjeżdżało na logo */
 .nav-links {
   flex: 1;
   display: flex;
@@ -137,7 +181,14 @@
 }
 
     .logo span { color: var(--accent); }
-    .nav-links { display: none; gap: 1.15rem; font-weight: 600; color: #374151; }
+
+    .nav-links {
+      display: none;
+      gap: 1.1rem;
+      color: #344054;
+      font-weight: 600;
+      font-size: .95rem;
+    }
 
     /* Hero */
     .hero-grid { display: grid; gap: 1.7rem; }
@@ -145,21 +196,25 @@
     .hero-copy { order: 2; }
 
     .hero-copy h1 {
-      font-size: clamp(2.1rem, 8.5vw, 4.5rem);
       margin-top: 1rem;
-      margin-bottom: 1rem;
+      font-size: clamp(2.2rem, 8.2vw, 4.3rem);
+      line-height: 1;
     }
 
     .hero-copy p {
-      font-size: clamp(1rem, 2.3vw, 1.16rem);
-      max-width: 54ch;
-      margin-top: .7rem;
+      margin-top: .8rem;
+      color: #344054;
+      max-width: 56ch;
+      font-size: clamp(1rem, 2.3vw, 1.12rem);
     }
 
-    .hero-emotion { font-weight: 700; color: #1f2937; }
+    .hero-copy .emotional {
+      font-weight: 700;
+      color: #1f2937;
+    }
 
     .hero-actions {
-      margin-top: 1.35rem;
+      margin-top: 1.45rem;
       display: flex;
       flex-wrap: wrap;
       gap: .65rem;
@@ -167,44 +222,44 @@
 
     .counter-row {
       margin-top: 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: .9rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .75rem;
+      max-width: 460px;
     }
 
     .counter {
       background: #fff;
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: .85rem .9rem;
-      min-width: 180px;
+      border-radius: var(--radius-md);
+      padding: .82rem .9rem;
       box-shadow: var(--shadow-sm);
     }
 
     .counter p {
-      font-size: .78rem;
+      margin: 0;
+      color: var(--muted);
+      font-size: .76rem;
       text-transform: uppercase;
       letter-spacing: .08em;
-      color: var(--muted);
       font-weight: 700;
-      margin: 0;
     }
 
     .counter strong {
       display: block;
+      margin-top: .22rem;
       font-family: "Space Grotesk", sans-serif;
       font-size: clamp(1.35rem, 4vw, 1.95rem);
-      line-height: 1.06;
-      margin-top: .28rem;
+      line-height: 1.05;
     }
 
-    .phone-mockup {
-      width: min(100%, 420px);
+    .phone-shell {
+      width: min(100%, 430px);
       margin-inline: auto;
-      padding: 11px;
-      border-radius: 34px;
-      background: linear-gradient(145deg, #fbf8f5, #f2eee9);
-      border: 1px solid rgba(52, 43, 72, 0.15);
+      padding: 12px;
+      border-radius: 36px;
+      background: linear-gradient(145deg, #fbf8f5, #f0ece8);
+      border: 1px solid rgba(52, 49, 64, 0.16);
       box-shadow: var(--shadow-md);
     }
 
@@ -213,12 +268,11 @@
       border-radius: 26px;
       overflow: hidden;
       position: relative;
-      border: 1px solid rgba(255, 255, 255, .8);
-      background: linear-gradient(165deg, #ffe7df 8%, #f8ced5 44%, #c7d2e8 100%);
+      background: linear-gradient(160deg, #ffe5dc 8%, #f7cdd3 44%, #c7d3e9 100%);
+      border: 1px solid rgba(255, 255, 255, 0.8);
     }
 
-    .reel video,
-    .reel iframe {
+    .reel video, .reel iframe {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -230,113 +284,182 @@
     .reel-overlay {
       position: absolute;
       inset: 0;
+      z-index: 2;
       padding: 1rem;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      background: linear-gradient(to top, rgba(22, 18, 26, .62), rgba(22, 18, 26, .08));
       color: #fff;
+      background: linear-gradient(to top, rgba(17, 24, 39, 0.6), rgba(17, 24, 39, 0.08));
       pointer-events: none;
-      z-index: 2;
     }
 
     .reel-overlay small {
       font-size: .78rem;
-      letter-spacing: .06em;
       text-transform: uppercase;
-      opacity: .9;
+      letter-spacing: .08em;
+      opacity: .95;
     }
 
     .reel-overlay strong {
       margin-top: .35rem;
       font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(1.4rem, 4.4vw, 1.9rem);
-      line-height: 1.07;
+      font-size: clamp(1.35rem, 4vw, 1.9rem);
+      line-height: 1.06;
     }
 
-    /* Generic cards */
-    .cards {
-      margin-top: 1.6rem;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      padding: 1.15rem;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .card h3 {
-      font-size: 1.06rem;
+    /* Sections specifics */
+    .equal-card h3 {
+      font-size: 1.08rem;
       margin-bottom: .35rem;
     }
 
-    .card p {
+    .equal-card p {
       color: var(--muted);
       font-size: .95rem;
     }
 
     .step {
-      width: 32px;
-      height: 32px;
+      width: 34px;
+      height: 34px;
       border-radius: 10px;
       display: grid;
       place-items: center;
       background: var(--accent-soft);
-      color: #8f1f1f;
+      color: #9d2727;
       font-weight: 800;
-      margin-bottom: .72rem;
-      font-size: .85rem;
+      margin-bottom: .7rem;
+      font-size: .84rem;
     }
 
-    .section-alt { background: var(--surface-soft); }
+    .postulate-card {
+      border-top: 3px solid var(--accent);
+    }
 
-    .media-box,
-    .join-box,
-    .final-box {
-      margin-top: 1.4rem;
-      border-radius: var(--radius-lg);
+    .media-box {
+      margin-top: 1.35rem;
+      padding: clamp(1.1rem, 2.9vw, 1.55rem);
       border: 1px solid var(--line);
-      background: var(--surface);
+      border-radius: var(--radius-xl);
+      background: #fff;
       box-shadow: var(--shadow-sm);
-      padding: clamp(1rem, 3vw, 1.6rem);
     }
 
-    .media-box p,
-    .join-box p,
-    .final-box p {
+    .media-box p {
       color: #334155;
-      max-width: 66ch;
+      max-width: 68ch;
     }
 
-    .media-actions,
-    .join-actions {
+    .media-actions {
       margin-top: 1rem;
       display: flex;
-      flex-wrap: wrap;
       gap: .65rem;
+      flex-wrap: wrap;
       align-items: center;
     }
 
-    .mail { color: #9f1d1d; font-weight: 700; }
-
-    .join-count {
-      margin-top: .45rem;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(1.7rem, 5vw, 2.5rem);
-      color: var(--secondary);
+    .mail {
+      color: #9c1f1f;
       font-weight: 700;
+    }
+
+    /* Petition */
+    .petition-wrap {
+      margin-top: 1.45rem;
+      background: #fff;
+      border: 1px solid rgba(214, 58, 58, 0.18);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+      padding: clamp(1rem, 3vw, 1.5rem);
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    .petition-top {
+      display: grid;
+      gap: .8rem;
+    }
+
+    .petition-count {
+      display: inline-flex;
+      align-items: baseline;
+      gap: .45rem;
+      flex-wrap: wrap;
+      font-family: "Space Grotesk", sans-serif;
+      color: #1f2937;
+    }
+
+    .petition-count strong {
+      font-size: clamp(1.9rem, 6vw, 2.9rem);
+      line-height: 1;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+
+    .petition-form {
+      display: grid;
+      gap: .75rem;
+      grid-template-columns: 1fr;
+    }
+
+    .field {
+      display: grid;
+      gap: .35rem;
+    }
+
+    .field label {
+      font-size: .9rem;
+      color: #344054;
+      font-weight: 600;
+    }
+
+    .field input {
+      min-height: 46px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      padding: .74rem .85rem;
+      font: inherit;
+      color: #101827;
+      background: #fff;
+    }
+
+    .petition-actions {
+      margin-top: .2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .65rem;
+    }
+
+    .status {
+      min-height: 1.3rem;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    .status.error { color: #b42318; }
+    .status.success { color: #166534; }
+    .status.info { color: #475467; }
+
+    /* Final CTA */
+    .final-box {
+      margin-top: .4rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: linear-gradient(180deg, #fff, #fff9f8);
+      box-shadow: var(--shadow-sm);
+      padding: clamp(1.2rem, 3vw, 1.8rem);
+    }
+
+    .final-box p {
+      color: #344054;
+      max-width: 62ch;
     }
 
     footer {
       border-top: 1px solid var(--line);
-      padding: 1.9rem 0;
-      color: #374151;
+      padding: 1.8rem 0;
       font-size: .95rem;
+      color: #344054;
     }
 
     .footer-grid {
@@ -344,19 +467,30 @@
       gap: .45rem;
     }
 
+    /* Reveal: bezpieczne domyślne widoczne */
     .reveal {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity .6s ease, transform .6s ease;
+      opacity: 1;
+      transform: none;
     }
 
-    .reveal.show {
+    .js-enabled .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+
+    .js-enabled .reveal.show {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
 
     @media (min-width: 760px) {
-      .cards.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .cards-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .petition-form {
+        grid-template-columns: 1fr 1fr auto;
+        align-items: end;
+      }
+      .petition-form .field { min-width: 0; }
       .footer-grid {
         grid-template-columns: repeat(4, auto);
         justify-content: space-between;
@@ -366,163 +500,62 @@
 
     @media (min-width: 980px) {
       .nav-links { display: flex; }
-
       .hero-grid {
-        grid-template-columns: 1.04fr .96fr;
+        grid-template-columns: 1.05fr .95fr;
         align-items: center;
-        gap: 2.4rem;
+        gap: 2.3rem;
       }
-
       .hero-copy { order: 1; }
       .hero-media { order: 2; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .btn, .reveal { transition: none; }
+      .js-enabled .reveal { transition: none; }
+      .btn { transition: none; }
     }
-
-.petition {
-  background: #fff;
-  border-top: 1px solid #eee;
-}
-
-.petition-actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-.petition-inner {
-  display: grid;
-  gap: 40px;
-}
-
-.petition-left h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.petition-desc {
-  color: #555;
-  margin-bottom: 16px;
-}
-
-.petition-goals {
-  margin: 16px 0;
-  padding-left: 18px;
-}
-
-.petition-goals li {
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-.petition-strong {
-  margin-top: 16px;
-  font-weight: 700;
-  color: #111;
-}
-
-/* FORM */
-
-.petition-form {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.petition-form input {
-  flex: 1;
-  min-width: 140px;
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  font-size: 14px;
-  transition: 0.2s;
-}
-
-.petition-form input:focus {
-  border-color: #ff3b30;
-  outline: none;
-}
-
-/* COUNTER */
-
-.petition-counter {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-}
-
-.petition-counter span {
-  font-size: 2.4rem;
-  font-weight: 900;
-  color: #ff3b30;
-}
-
-.petition-counter p {
-  color: #666;
-  font-weight: 600;
-}
-
-/* STATUS */
-
-.petition-status {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #444;
-}
-
-/* DESKTOP */
-
-@media (min-width: 768px) {
-  .petition-inner {
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-  }
-}
   </style>
+
+  <!-- biblioteki zewnętrzne -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
-  <!-- NAVBAR -->
+  <!-- Navbar -->
   <header class="nav">
     <div class="container nav-inner">
-      <a class="logo" href="#top" aria-label="3 Dziennie — przejdź na początek">
+      <a class="logo" href="#top" aria-label="3 Dziennie — początek strony">
   <img src="logo.png" alt="3 Dziennie" />
 </a>
       <nav aria-label="Nawigacja główna">
         <div class="nav-links">
           <a href="#o-akcji">O akcji</a>
           <a href="#co-zrobic">Co możesz zrobić</a>
-          <a href="#postulaty">Nasze postulaty</a>
+          <a href="#postulaty">Postulaty</a>
           <a href="#media">Dla mediów</a>
         </div>
       </nav>
-      <a class="btn btn-primary" href="#dolacz">Dołącz</a>
+      <a class="btn btn-primary" href="#petycja">Dołącz</a>
     </div>
   </header>
 
   <main id="top">
-    <!-- 1. HERO -->
+    <!-- Hero -->
     <section>
       <div class="container hero-grid">
         <div class="hero-media reveal">
-          <div class="phone-mockup" aria-label="Rolka startowa akcji 3 Dziennie">
-            <div class="reel">
-              <video autoplay muted loop playsinline aria-label="Wideo kampanii"></video>
-              <!-- Podmień na właściwy materiał:
+          <div class="phone-shell" aria-label="Rolka startowa akcji 3 Dziennie">
+            <article class="reel">
+              <video autoplay muted loop playsinline aria-label="Rolka kampanii"></video>
+              <!-- Podmień łatwo na właściwe video lub iframe:
               <video src="rolka.mp4" autoplay muted loop playsinline controls></video>
-              lub
-              <iframe src="https://..." title="Rolka startowa" allowfullscreen></iframe>
+              <iframe src="https://..." title="Rolka #3Dziennie" allowfullscreen></iframe>
               -->
               <div class="reel-overlay">
                 <small>Rolka startowa</small>
                 <strong>Dzisiaj 3 dzieci</strong>
               </div>
-            </div>
+            </article>
           </div>
         </div>
 
@@ -530,10 +563,10 @@
           <span class="eyebrow">Ruch społeczny #3Dziennie</span>
           <h1>3 dzieci dziennie</h1>
           <p>Codziennie około 3 dzieci w Polsce słyszy diagnozę nowotworu.</p>
-          <p class="hero-emotion">Nie pozwólmy, żeby temat zniknął po jednym dniu.</p>
+          <p class="emotional">Nie pozwólmy, żeby temat zniknął po jednym dniu.</p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#dolacz">Dołącz do akcji</a>
+            <a class="btn btn-primary" href="#petycja">Dołącz do akcji</a>
             <a class="btn btn-secondary" href="#co-zrobic">Zobacz, jak pomóc</a>
           </div>
 
@@ -551,151 +584,144 @@
       </div>
     </section>
 
-    <!-- 2. Dlaczego to ważne -->
-    <section class="section-alt">
+    <!-- Dlaczego to ważne -->
+    <section class="section-soft">
       <div class="container">
         <span class="eyebrow reveal">Dlaczego to ważne</span>
-        <h2 class="section-title reveal">Każdy dzień bez uwagi to krok do zapomnienia</h2>
-        <p class="section-lead reveal">Chcemy, by emocja nie kończyła się po jednym dniu i zamieniała się w realną, społeczną presję na zmiany.</p>
+        <h2 class="section-title reveal">Emocja musi zamienić się w działanie</h2>
+        <p class="section-lead reveal">To codzienny temat, nie jednorazowy zryw. Zasięg, regularność i presja społeczna mogą realnie wpływać na decyzje.</p>
 
-        <div class="cards cols-3">
-          <article class="card reveal">
+        <div class="cards-grid cols-3">
+          <article class="card equal-card reveal">
             <h3>To dzieje się codziennie</h3>
-            <p>To nie jednorazowa historia — codziennie kolejne rodziny słyszą tę samą diagnozę.</p>
+            <p>Każdego dnia kolejne rodziny słyszą diagnozę i wchodzą w najtrudniejszy etap życia.</p>
           </article>
-          <article class="card reveal">
+          <article class="card equal-card reveal">
             <h3>Rodziny zostają z tym same</h3>
-            <p>Po pierwszej fali emocji często zostają same z lękiem, kosztami i codzienną organizacją leczenia.</p>
+            <p>Po pierwszej fali wsparcia często zaczyna się cisza, a potrzeby trwają dalej.</p>
           </article>
-          <article class="card reveal">
+          <article class="card equal-card reveal">
             <h3>Zasięg może zamienić emocję w presję</h3>
-            <p>Gdy temat nie znika z feedu, trudniej go pominąć mediom i decydentom.</p>
+            <p>Kiedy temat nie znika, rośnie szansa na uwagę mediów i konkretne zmiany systemowe.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 3. Co możesz zrobić -->
+    <!-- Co możesz zrobić -->
     <section id="co-zrobic">
       <div class="container">
         <span class="eyebrow reveal">Co możesz zrobić</span>
-        <h2 class="section-title reveal">Trzy kroki. Jeden cel.</h2>
+        <h2 class="section-title reveal">Trzy kroki. Duży efekt.</h2>
 
-        <div class="cards cols-3">
-          <article class="card reveal">
+        <div class="cards-grid cols-3">
+          <article class="card equal-card reveal">
             <div class="step">1</div>
             <h3>Udostępnij rolkę</h3>
-            <p>Daj tematowi kolejne życie poza własnym profilem.</p>
+            <p>Jeden share może być początkiem kolejnej fali zasięgu.</p>
           </article>
-          <article class="card reveal">
+          <article class="card equal-card reveal">
             <div class="step">2</div>
             <h3>Nagraj swoją wersję</h3>
-            <p>Jedno zdanie od Ciebie może zatrzymać czyjś scroll.</p>
+            <p>Krótki komunikat od Ciebie pomaga utrzymać temat w obiegu.</p>
           </article>
-          <article class="card reveal">
+          <article class="card equal-card reveal">
             <div class="step">3</div>
             <h3>Oznacz 2 osoby</h3>
-            <p>Niech akcja idzie dalej i wraca każdego dnia.</p>
+            <p>To prosty sposób, by akcja wracała każdego kolejnego dnia.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 4. Nasze postulaty -->
-    <section id="postulaty" class="section-alt">
+    <!-- Postulaty -->
+    <section id="postulaty" class="section-soft">
       <div class="container">
         <span class="eyebrow reveal">Nasze postulaty</span>
-        <h2 class="section-title reveal">Zmiana zaczyna się od konkretu</h2>
+        <h2 class="section-title reveal">Trzy konkretne oczekiwania</h2>
 
-        <div class="cards cols-3">
-          <article class="card reveal">
+        <div class="cards-grid cols-3">
+          <article class="card postulate-card reveal">
             <h3>Szybsza diagnostyka</h3>
-            <p>Krótsza droga od podejrzenia do pełnej diagnozy i leczenia.</p>
+            <p>Skrócenie drogi od podejrzenia nowotworu do rozpoznania i leczenia.</p>
           </article>
-          <article class="card reveal">
+          <article class="card postulate-card reveal">
             <h3>Realne wsparcie rodzin</h3>
-            <p>Stała pomoc psychologiczna, organizacyjna i finansowa.</p>
+            <p>Stała pomoc psychologiczna, logistyczna i finansowa dla opiekunów.</p>
           </article>
-          <article class="card reveal">
+          <article class="card postulate-card reveal">
             <h3>26 kwietnia jako dzień świadomości</h3>
-            <p>Coroczny punkt, który nie pozwoli tematowi znikać.</p>
+            <p>Stały punkt w kalendarzu, który podtrzyma temat w debacie publicznej.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 5. Dla mediów -->
+    <!-- Dla mediów -->
     <section id="media">
       <div class="container">
         <span class="eyebrow reveal">Dla mediów</span>
-        <h2 class="section-title reveal">Krótko i jasno</h2>
+        <h2 class="section-title reveal">Gotowy opis akcji</h2>
 
-        <div class="media-box reveal">
+        <article class="media-box reveal">
           <p>
             „3 Dziennie” to oddolna akcja społeczna przypominająca, że codziennie około 3 dzieci
-            w Polsce słyszy diagnozę nowotworu. Celem jest utrzymanie tematu w debacie publicznej
-            i budowanie codziennej mobilizacji społecznej.
+            w Polsce słyszy diagnozę nowotworu. Celem ruchu jest utrzymanie tematu w przestrzeni publicznej,
+            budowanie codziennego zaangażowania i nacisku na rozwiązania systemowe.
           </p>
           <div class="media-actions">
-            <a href="mailto:kontakt@3dziennie.pl" class="mail">kontakt@3dziennie.pl</a>
-            <a class="btn btn-primary" href="mailto:kontakt@3dziennie.pl?subject=3%20Dziennie%20-%20kontakt%20dla%20medi%C3%B3w">Skontaktuj się</a>
+            <a class="mail" href="mailto:kontakt@3dziennie.pl">kontakt@3dziennie.pl</a>
+            <a class="btn btn-secondary" href="mailto:kontakt@3dziennie.pl?subject=3%20Dziennie%20-%20kontakt%20dla%20medi%C3%B3w">Kontakt dla mediów</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Petycja / Dołącz -->
+    <section id="petycja" class="section-soft">
+      <div class="container">
+        <span class="eyebrow reveal">Petycja</span>
+        <h2 class="section-title reveal">Dołącz do petycji i zwiększ presję</h2>
+
+        <div class="petition-wrap reveal">
+          <div class="petition-top">
+            <p class="section-lead">
+              Celem tej petycji jest ustanowienie 26 kwietnia Narodowym Dniem Walki Dzieci z Nowotworami.
+            </p>
+            <p class="petition-count">Podpisów: <strong id="signatureCount">—</strong></p>
+            <p id="dbStatus" class="status info" role="status" aria-live="polite"></p>
+          </div>
+
+          <form id="petitionForm" class="petition-form" novalidate>
+            <div class="field">
+              <label for="name">Imię i nazwisko</label>
+              <input id="name" name="name" type="text" required minlength="2" maxlength="120" placeholder="Np. Anna Kowalska" aria-label="Imię i nazwisko" />
+            </div>
+            <div class="field">
+              <label for="city">Miasto</label>
+              <input id="city" name="city" type="text" required minlength="2" maxlength="120" placeholder="Np. Poznań" aria-label="Miasto" />
+            </div>
+            <button id="signBtn" class="btn btn-primary" type="submit">Podpisz petycję</button>
+          </form>
+
+          <div class="petition-actions">
+            <button id="downloadReportBtn" class="btn btn-secondary" type="button">Pobierz raport dla mediów</button>
+            <a id="sendDecisionBtn" class="btn btn-secondary" href="mailto:kontakt@3dziennie.pl?subject=Przekazanie%20postulat%C3%B3w%20-%203%20Dziennie&body=Prosz%C4%99%20o%20przekazanie%20postulat%C3%B3w%20akcji%20spo%C5%82ecznej%203%20Dziennie%20do%20w%C5%82a%C5%9Bciwych%20decydent%C3%B3w.">Wyślij do decydentów</a>
           </div>
         </div>
       </div>
     </section>
 
-<section id="petycja" class="section">
-  <div class="container">
-
-    <h2>PODPISZ PETYCJĘ</h2>
-    <p>
-      Celem tej petycji jest ustanowienie <strong>26 kwietnia</strong>
-      Narodowym Dniem Walki Dzieci z Nowotworami.
-    </p>
-
-    <form id="petitionForm" class="petition-form">
-      <input type="text" id="name" placeholder="Imię (np. Tomek)" required />
-      <input type="text" id="city" placeholder="Miasto (opcjonalnie)" />
-      <button type="submit" class="btn btn-primary">Podpisuję</button>
-    </form>
-
-    <div class="petition-stats">
-      <h3><span id="signatureCount">0</span> osób podpisało</h3>
-    </div>
-
-    <!-- 🔥 PRZYCISKI (TU DODANE) -->
-    <div class="petition-actions">
-
-      <button onclick="generatePDF()" class="btn btn-secondary">
-        Pobierz raport dla mediów
-      </button>
-
-      <a 
-        href="mailto:kontakt@sejm.gov.pl,sekretariat@mz.gov.pl?subject=Petycja 26 kwietnia – 3 Dziennie&body=Popieram ustanowienie 26 kwietnia Narodowym Dniem Walki Dzieci z Nowotworami.%0D%0A%0D%0AProszę o podjęcie działań legislacyjnych w tej sprawie."
-        class="btn btn-primary"
-      >
-        Wyślij do decydentów
-      </a>
-
-    </div>
-
-    <div id="recentSignatures" class="signatures-list"></div>
-
-    <p id="petitionStatus"></p>
-
-  </div>
-</section>
-
-    <!-- 7. Final CTA -->
+    <!-- Final CTA -->
     <section>
       <div class="container">
-        <div class="final-box reveal">
+        <article class="final-box reveal">
           <h2 class="section-title">Jedna rolka może zniknąć. Ruch może zostać.</h2>
-          <p>Udostępnij, nagraj, oznacz dalej. Największe zmiany zaczynają się od małej, codziennej konsekwencji.</p>
-          <div class="join-actions">
-            <a class="btn btn-primary" href="#dolacz">Dołącz do akcji</a>
+          <p>Udostępnij akcję, podpisz petycję i wróć jutro. Tylko stała obecność tego tematu daje szansę na zmianę.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#petycja">Dołącz teraz</a>
           </div>
-        </div>
+        </article>
       </div>
     </section>
   </main>
@@ -709,102 +735,260 @@
     </div>
   </footer>
 
-  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+ <script>
+      const SUPABASE_URL = window.SUPABASE_URL || "https://bylkcovjqiodcfexdxia.supabase.co";
+      const SUPABASE_ANON_KEY = window.SUPABASE_ANON_KEY || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ5bGtjb3ZqcWlvZGNmZXhkeGlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcyNzg0MzgsImV4cCI6MjA5Mjg1NDQzOH0.8ZpSzW6Co6GKWPqO8bgCVDQ6l6lcrioxJvqZ6YfpCn0";
 
-<script>
-const SUPABASE_URL = "https://bylkcovjqiodcfexdxia.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ5bGtjb3ZqcWlvZGNmZXhkeGlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcyNzg0MzgsImV4cCI6MjA5Mjg1NDQzOH0.8ZpSzW6Co6GKWPqO8bgCVDQ6l6lcrioxJvqZ6YfpCn0";
+      const dayCountEl = document.getElementById("dayCount");
+      const childCountEl = document.getElementById("childCount");
+      const yearEl = document.getElementById("year");
 
-const supabase = window.supabaseClient 
-  || window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      const signaturesCountEl = document.getElementById("signatureCount");
+      const petitionForm = document.getElementById("petitionForm");
+      const signBtn = document.getElementById("signBtn");
+      const dbStatus = document.getElementById("dbStatus");
+      const downloadReportBtn = document.getElementById("downloadReportBtn");
 
-window.supabaseClient = supabase;
-// ===== LICZNIK DNI =====
-const startDate = new Date("2026-04-27T00:00:00");
-const now = new Date();
-const dayDiff = Math.max(1, Math.floor((now - startDate) / (1000*60*60*24)) + 1);
+      let signaturesCount = 0;
+      let supabaseClient = null;
+      let isDbAvailable = false;
 
-document.getElementById("dayCount").textContent = dayDiff;
-document.getElementById("childCount").textContent = dayDiff * 3;
+      // --- licznik dni i dzieci ---
+      const startDate = new Date("2026-04-27T00:00:00");
+      const now = new Date();
+      const dayDiff = Math.max(1, Math.floor((now - startDate) / (1000 * 60 * 60 * 24)) + 1);
+      const childCount = dayDiff * 3;
+      if (dayCountEl) dayCountEl.textContent = dayDiff.toLocaleString("pl-PL");
+      if (childCountEl) childCountEl.textContent = childCount.toLocaleString("pl-PL");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// ===== LICZNIK PODPISÓW =====
-async function loadCount() {
-  const { data, error } = await supabase
-    .from("signatures")
-    .select("id");
+      // --- reveal (bez ryzyka białej strony) ---
+      const revealElements = document.querySelectorAll(".reveal");
+      const enableRevealAnimations = () => {
+        if (!revealElements.length) return;
+        if (!("IntersectionObserver" in window)) return;
 
-  if (!error && data) {
-    document.getElementById("signatureCount").textContent = data.length;
-  }
-}
+        document.documentElement.classList.add("js-enabled");
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.16, rootMargin: "0px 0px -20px 0px" });
 
-loadCount();
+        revealElements.forEach((el) => observer.observe(el));
+      };
 
-// ===== DODANIE PODPISU =====
-document.getElementById("petitionForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+      try {
+        enableRevealAnimations();
+      } catch (error) {
+        // brak animacji > lepsze niż ukryta strona
+        console.error("Reveal init error:", error);
+      }
 
-  if (localStorage.getItem("signed")) {
-    document.getElementById("petitionStatus").textContent = "Już podpisałeś.";
+      // --- Supabase init ---
+      const hasValidConfig =
+        typeof SUPABASE_URL === "string" &&
+        SUPABASE_URL.startsWith("https://") &&
+        !SUPABASE_URL.includes("YOUR_PROJECT") &&
+        typeof SUPABASE_ANON_KEY === "string" &&
+        SUPABASE_ANON_KEY.trim() !== "" &&
+        !SUPABASE_ANON_KEY.includes("YOUR_SUPABASE_ANON_KEY");
+
+      const setDbMessage = (message, type = "info") => {
+        if (!dbStatus) return;
+        dbStatus.textContent = message;
+        dbStatus.className = `status ${type}`;
+      };
+
+      if (window.supabase && hasValidConfig) {
+        supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        isDbAvailable = true;
+      } else {
+        isDbAvailable = false;
+        setDbMessage("Połączenie z bazą chwilowo niedostępne", "error");
+        if (signBtn) signBtn.disabled = true;
+      }
+
+      // --- podpisano wcześniej (tylko blokada wielokrotnego podpisu lokalnie) ---
+      const hasSigned = () => localStorage.getItem("signed") === "true";
+      const applySignedState = () => {
+        if (!signBtn) return;
+        if (hasSigned()) {
+          signBtn.disabled = true;
+          signBtn.textContent = "Petycja już podpisana";
+        }
+      };
+
+      // --- pobieranie realnego licznika podpisów ---
+      const refreshSignaturesCount = async () => {
+        if (!signaturesCountEl) return;
+        if (!isDbAvailable || !supabaseClient) {
+          signaturesCountEl.textContent = "—";
+          return;
+        }
+
+        try {
+          const { count, error } = await supabaseClient
+            .from("signatures")
+            .select("id", { count: "exact", head: true });
+
+          if (error) throw error;
+
+          signaturesCount = count || 0;
+          signaturesCountEl.textContent = signaturesCount.toLocaleString("pl-PL");
+        } catch (error) {
+          console.error("Błąd pobierania liczby podpisów:", error);
+          signaturesCountEl.textContent = "—";
+          setDbMessage("Nie udało się pobrać licznika podpisów", "error");
+        }
+      };
+
+      // --- zapis podpisu do Supabase ---
+      const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        if (!petitionForm) return;
+        const formData = new FormData(petitionForm);
+        const name = String(formData.get("name") || "").trim();
+        const city = String(formData.get("city") || "").trim();
+
+        if (!name || !city) {
+          setDbMessage("Uzupełnij imię i miasto", "error");
+          return;
+        }
+
+        if (hasSigned()) {
+          setDbMessage("Ta przeglądarka ma już zapisany podpis", "info");
+          applySignedState();
+          return;
+        }
+
+        if (!isDbAvailable || !supabaseClient) {
+          setDbMessage("Połączenie z bazą chwilowo niedostępne", "error");
+          return;
+        }
+
+        try {
+          if (signBtn) signBtn.disabled = true;
+
+          const { error } = await supabaseClient
+            .from("signatures")
+            .insert([{ name, city }]);
+
+          if (error) throw error;
+
+          petitionForm.reset();
+          setDbMessage("Dziękujemy! Twój podpis został zapisany.", "success");
+          localStorage.setItem("signed", "true");
+          applySignedState();
+          await refreshSignaturesCount();
+        } catch (error) {
+          console.error("Błąd zapisu podpisu:", error);
+          if (signBtn) signBtn.disabled = false;
+          setDbMessage("Nie udało się zapisać podpisu. Spróbuj ponownie.", "error");
+        }
+      };
+
+      if (petitionForm) {
+        petitionForm.addEventListener("submit", handleSubmit);
+      }
+
+      // --- PDF raport ---
+function generatePDF() {
+  if (!window.jspdf || !window.jspdf.jsPDF) {
+    alert("PDF chwilowo niedostępny");
     return;
   }
 
-  const name = document.getElementById("name").value.trim();
-  const city = document.getElementById("city").value.trim();
-
-  if (!name) return;
-
-  const { error } = await supabase.from("signatures").insert([
-    { name, city }
-  ]);
-
-  if (!error) {
-    localStorage.setItem("signed", "true");
-    document.getElementById("petitionStatus").textContent = "Podpis dodany.";
-    document.getElementById("petitionForm").reset();
-    loadCount();
-  } else {
-    document.getElementById("petitionStatus").textContent = "Błąd. Spróbuj ponownie.";
-  }
-});
-
-// ===== ROK =====
-document.getElementById("year").textContent = new Date().getFullYear();
-
-// ===== REVEAL =====
-const revealElements = document.querySelectorAll(".reveal");
-
-const observer = new IntersectionObserver((entries, obs) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("show");
-      obs.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.18 });
-
-revealElements.forEach(el => observer.observe(el));
-
-function generatePDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
-  doc.setFont("Helvetica", "bold");
-  doc.setFontSize(18);
-  doc.text("3 Dziennie – raport dla mediów", 20, 20);
+  const pageWidth = doc.internal.pageSize.getWidth();
+  let y = 20;
 
-  doc.setFont("Helvetica", "normal");
-  doc.setFontSize(12);
+  const signatures =
+    document.getElementById("signatureCount")?.textContent || "0";
 
-  doc.text("Codziennie około 3 dzieci w Polsce słyszy diagnozę nowotworu.", 20, 40);
-  doc.text("Celem akcji jest utrzymanie tematu w debacie publicznej.", 20, 50);
-  doc.text("Postulat: ustanowienie 26 kwietnia dniem walki dzieci z rakiem.", 20, 60);
+  const today = new Date().toLocaleDateString("pl-PL");
+
+  // 🔥 USTAWIENIE FONTU (KLUCZ)
+  doc.setFont("Inter-Regular", "normal");
+
+  // 🔥 RESET spacingu (usuwa „C o d z i e n n i e”)
+  doc.setCharSpace(0);
+
+  const writeText = (text, size = 11, bold = false, color = [0, 0, 0]) => {
+    doc.setFont("Inter-Regular", bold ? "bold" : "normal");
+    doc.setFontSize(size);
+    doc.setTextColor(...color);
+
+    const lines = doc.splitTextToSize(text, pageWidth - 32);
+    doc.text(lines, 16, y);
+    y += lines.length * 6 + 6;
+  };
+
+  // ===== HEADER =====
+  doc.setFontSize(24);
+  doc.setFont("Inter-Regular", "bold");
+  doc.text("3 Dziennie", 16, y);
+
+  y += 8;
+
+  doc.setFontSize(13);
+  doc.setFont("Inter-Regular", "normal");
+  doc.text("Raport dla mediów", 16, y);
+
+  y += 6;
+  doc.text(`Data: ${today}`, 16, y);
+
+  y += 14;
+
+  // ===== SEKCJE =====
+  writeText("Skala problemu", 14, true);
+  writeText(
+    "Codziennie około 3 dzieci w Polsce słyszy diagnozę nowotworu."
+  );
+
+  writeText("Cel akcji", 14, true);
+  writeText(
+    "Celem akcji jest utrzymanie tematu w debacie publicznej oraz wywieranie presji społecznej na realne zmiany."
+  );
+
+  writeText("Postulat", 14, true);
+  writeText(
+    "Ustanowienie 26 kwietnia Narodowym Dniem Walki Dzieci z Nowotworami",
+    12,
+    true,
+    [200, 0, 0]
+  );
+
+  writeText("Poparcie społeczne", 14, true);
+  writeText(
+    `Petycję podpisało: ${signatures} osób`,
+    12,
+    true,
+    [200, 0, 0]
+  );
+
+  // ===== STOPKA =====
+  doc.setFontSize(10);
+  doc.setTextColor(100);
+  doc.text("kontakt@3dziennie.pl", 16, 280);
+  doc.text("#3Dziennie", pageWidth - 40, 280);
 
   doc.save("raport-3dziennie.pdf");
 }
 
-</script>
+      if (downloadReportBtn) {
+        downloadReportBtn.addEventListener("click", generatePDF);
+      }
 
+      // start
+      applySignedState();
+      refreshSignaturesCount();
+  </script>
 </body>
 </html>
