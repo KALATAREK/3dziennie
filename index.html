@@ -3,877 +3,808 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3 Dziennie — 3 dzieci dziennie. Reaguj.</title>
-  <meta name="description" content="Ruch społeczny #3Dziennie. W Polsce codziennie około 3 dzieci słyszy diagnozę nowotworu. Dołącz i reaguj." />
+  <title>3 Dziennie — Kampania społeczna</title>
+  <meta name="description" content="3 Dziennie — codziennie około 3 dzieci w Polsce słyszy diagnozę nowotworu. Dołącz do akcji." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #f7f7f5;
-      --surface: #ffffff;
+      --bg: #f8f6f2;
+      --surface: #fffdfa;
+      --surface-soft: #fff4ef;
       --text: #101010;
-      --muted: #667085;
-      --accent: #ff2d2d;
-      --dark: #111827;
-      --beige: #fdf8f2;
-      --pink: #fff4f4;
-      --off: #fafafa;
+      --muted: #6b7280;
+      --accent: #d53a3a;
+      --accent-soft: #f9e0dd;
+      --secondary: #342b48;
+      --line: rgba(16, 16, 16, 0.1);
+      --shadow-sm: 0 8px 24px rgba(52, 43, 72, 0.08);
+      --shadow-md: 0 14px 36px rgba(52, 43, 72, 0.1);
       --radius-lg: 24px;
       --radius-md: 16px;
-      --radius-sm: 12px;
-      --shadow-soft: 0 10px 30px rgba(17, 24, 39, 0.08);
-      --shadow-card: 0 6px 24px rgba(17, 24, 39, 0.06);
-      --container: min(1120px, calc(100% - 2.5rem));
+      --container: min(1120px, calc(100% - 2rem));
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
       color: var(--text);
       background: var(--bg);
       line-height: 1.6;
       text-rendering: optimizeLegibility;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: var(--container); margin-inline: auto; }
+    section { padding: clamp(3.2rem, 7vw, 5.6rem) 0; }
 
-    img,
-    video {
-      display: block;
-      max-width: 100%;
-    }
-
-    .container {
-      width: var(--container);
-      margin-inline: auto;
-    }
-
-    section {
-      padding: 4.5rem 0;
-    }
-
-    .section-alt {
-      background: linear-gradient(120deg, var(--beige), var(--off));
-    }
-
-    .section-soft {
-      background: linear-gradient(140deg, var(--pink), #fff);
+    h1, h2, h3 {
+      font-family: "Space Grotesk", "Inter", sans-serif;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: #161616;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      gap: .5rem;
+      font-size: .78rem;
       text-transform: uppercase;
-      color: var(--dark);
-      padding: 0.45rem 0.8rem;
-      border-radius: 999px;
+      letter-spacing: .1em;
+      font-weight: 700;
+      color: var(--secondary);
       background: #fff;
-      border: 1px solid rgba(17, 24, 39, 0.1);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: .45rem .8rem;
     }
 
     .section-title {
-      font-family: "Anton", Impact, Haettenschweiler, sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      font-weight: 400;
-      line-height: 1.05;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      margin: 0.9rem 0 0.75rem;
+      font-size: clamp(1.7rem, 5vw, 2.9rem);
+      margin-top: .85rem;
+      margin-bottom: .75rem;
     }
 
     .section-lead {
       color: var(--muted);
-      max-width: 64ch;
+      max-width: 62ch;
     }
 
     .btn {
-      border: 0;
-      border-radius: 999px;
-      padding: 0.82rem 1.25rem;
-      font-weight: 700;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.45rem;
       min-height: 46px;
+      padding: .8rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
     }
 
+    .btn:hover { transform: translateY(-1px); }
     .btn:focus-visible,
-    .link:focus-visible,
-    .nav-links a:focus-visible {
-      outline: 3px solid rgba(255, 45, 45, 0.35);
+    a:focus-visible {
+      outline: 3px solid rgba(213, 58, 58, .35);
       outline-offset: 3px;
     }
 
     .btn-primary {
       background: var(--accent);
       color: #fff;
-      box-shadow: 0 8px 20px rgba(255, 45, 45, 0.3);
+      box-shadow: 0 8px 20px rgba(213, 58, 58, .24);
     }
 
     .btn-secondary {
       background: #fff;
-      border: 1px solid rgba(17, 24, 39, 0.16);
-      color: var(--dark);
+      border-color: var(--line);
+      color: #1f2937;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .site-nav {
+    /* Navbar */
+    .nav {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 40;
       backdrop-filter: blur(10px);
-      background: rgba(247, 247, 245, 0.88);
-      border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+      background: rgba(248, 246, 242, 0.88);
+      border-bottom: 1px solid var(--line);
     }
 
     .nav-inner {
-      min-height: 76px;
+      min-height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
     }
 
-    .logo {
-      font-family: "Anton", sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      font-size: 1.5rem;
-    }
+.logo img {
+  height: 48px;   /* to jest sweet spot */
+  width: auto;
+  display: block;
+}
 
-    .logo span {
-      color: var(--accent);
-    }
+/* żeby menu się nie wciskało */
+.nav-links {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
 
-    .nav-links {
-      display: none;
-      gap: 1.1rem;
-      font-weight: 600;
-      color: #1f2937;
-    }
+    .logo span { color: var(--accent); }
+    .nav-links { display: none; gap: 1.15rem; font-weight: 600; color: #374151; }
 
-    .hero {
-      padding-top: 2.5rem;
-    }
+    /* Hero */
+    .hero-grid { display: grid; gap: 1.7rem; }
+    .hero-media { order: 1; }
+    .hero-copy { order: 2; }
 
-    .hero-grid {
-      display: grid;
-      gap: 2rem;
-    }
-
-    .hero-content h1 {
-      font-family: "Anton", sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      line-height: 0.95;
-      font-weight: 400;
-      font-size: clamp(2.3rem, 9vw, 5rem);
+    .hero-copy h1 {
+      font-size: clamp(2.1rem, 8.5vw, 4.5rem);
       margin-top: 1rem;
+      margin-bottom: 1rem;
     }
 
-    .hero-subtitle {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      margin-top: 1.1rem;
-      color: #1f2937;
-      max-width: 56ch;
+    .hero-copy p {
+      font-size: clamp(1rem, 2.3vw, 1.16rem);
+      max-width: 54ch;
+      margin-top: .7rem;
     }
 
-    .hero-strong {
-      margin-top: 0.9rem;
-      font-weight: 700;
-      font-size: 1.08rem;
-      color: var(--dark);
-    }
+    .hero-emotion { font-weight: 700; color: #1f2937; }
 
     .hero-actions {
+      margin-top: 1.35rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .65rem;
+    }
+
+    .counter-row {
       margin-top: 1.5rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.7rem;
+      gap: .9rem;
     }
 
-    .counter-grid {
-      margin-top: 1.5rem;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.8rem;
-      max-width: 430px;
-    }
-
-    .counter-card {
+    .counter {
       background: #fff;
-      border-radius: var(--radius-md);
-      padding: 1rem;
-      border: 1px solid rgba(17, 24, 39, 0.08);
-      box-shadow: var(--shadow-card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: .85rem .9rem;
+      min-width: 180px;
+      box-shadow: var(--shadow-sm);
     }
 
-    .counter-card p {
-      color: var(--muted);
-      font-size: 0.86rem;
-      font-weight: 600;
+    .counter p {
+      font-size: .78rem;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: .08em;
+      color: var(--muted);
+      font-weight: 700;
+      margin: 0;
     }
 
-    .counter-card strong {
+    .counter strong {
       display: block;
-      margin-top: 0.25rem;
-      font-size: clamp(1.3rem, 4vw, 1.9rem);
-      line-height: 1;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.35rem, 4vw, 1.95rem);
+      line-height: 1.06;
+      margin-top: .28rem;
     }
 
-    .reel-card {
+    .phone-mockup {
+      width: min(100%, 420px);
       margin-inline: auto;
-      width: min(100%, 390px);
-      aspect-ratio: 9/16;
-      background: radial-gradient(circle at 28% 16%, #ff6565, #ff2d2d 35%, #111827);
-      border-radius: 28px;
-      padding: 1rem;
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      isolation: isolate;
+      padding: 11px;
+      border-radius: 34px;
+      background: linear-gradient(145deg, #fbf8f5, #f2eee9);
+      border: 1px solid rgba(52, 43, 72, 0.15);
+      box-shadow: var(--shadow-md);
     }
 
-    .reel-card::before {
-      content: "";
+    .reel {
+      aspect-ratio: 9/16;
+      border-radius: 26px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, .8);
+      background: linear-gradient(165deg, #ffe7df 8%, #f8ced5 44%, #c7d2e8 100%);
+    }
+
+    .reel video,
+    .reel iframe {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.06) 45%);
-      z-index: -1;
-    }
-
-    .play-btn {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.18);
-      border: 2px solid rgba(255, 255, 255, 0.56);
-      display: grid;
-      place-items: center;
-      color: #fff;
-      font-size: 1.45rem;
-      backdrop-filter: blur(5px);
-    }
-
-    .reel-meta {
-      color: #fff;
       width: 100%;
-      display: grid;
-      gap: 0.4rem;
-      font-weight: 600;
+      height: 100%;
+      object-fit: cover;
+      border: 0;
     }
 
-    .reel-tag {
-      font-size: 0.78rem;
-      letter-spacing: 0.06em;
+    .reel-overlay {
+      position: absolute;
+      inset: 0;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: linear-gradient(to top, rgba(22, 18, 26, .62), rgba(22, 18, 26, .08));
+      color: #fff;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .reel-overlay small {
+      font-size: .78rem;
+      letter-spacing: .06em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.85);
+      opacity: .9;
     }
 
-    .reel-title {
-      font-size: clamp(1.2rem, 4vw, 1.65rem);
-      line-height: 1.1;
-      font-weight: 800;
+    .reel-overlay strong {
+      margin-top: .35rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.4rem, 4.4vw, 1.9rem);
+      line-height: 1.07;
     }
 
-    .cards-grid {
-      margin-top: 1.75rem;
+    /* Generic cards */
+    .cards {
+      margin-top: 1.6rem;
       display: grid;
-      gap: 1rem;
       grid-template-columns: 1fr;
+      gap: 1rem;
     }
 
     .card {
       background: var(--surface);
-      border: 1px solid rgba(17, 24, 39, 0.08);
+      border: 1px solid var(--line);
       border-radius: var(--radius-md);
-      padding: 1.2rem;
-      box-shadow: var(--shadow-card);
+      padding: 1.15rem;
+      box-shadow: var(--shadow-sm);
     }
 
     .card h3 {
-      font-size: 1.08rem;
-      margin-bottom: 0.35rem;
-      line-height: 1.3;
+      font-size: 1.06rem;
+      margin-bottom: .35rem;
     }
 
     .card p {
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: .95rem;
     }
 
-    .num-badge {
-      width: 34px;
-      height: 34px;
+    .step {
+      width: 32px;
+      height: 32px;
       border-radius: 10px;
       display: grid;
       place-items: center;
-      font-size: 0.9rem;
+      background: var(--accent-soft);
+      color: #8f1f1f;
       font-weight: 800;
-      background: #ffe6e6;
-      color: #b20000;
-      margin-bottom: 0.8rem;
+      margin-bottom: .72rem;
+      font-size: .85rem;
     }
 
-    .copy-box {
-      margin-top: 1.35rem;
-      background: #fff;
-      border: 1px dashed rgba(17, 24, 39, 0.24);
-      border-radius: var(--radius-md);
-      padding: 1rem;
-      display: grid;
-      gap: 0.85rem;
-    }
+    .section-alt { background: var(--surface-soft); }
 
-    .copy-box p {
-      font-weight: 600;
-      color: #1f2937;
-    }
-
-    .copy-status {
-      min-height: 1.2rem;
-      font-size: 0.88rem;
-      color: #b91c1c;
-      font-weight: 600;
-    }
-
-    .timeline {
-      margin-top: 1.8rem;
-      display: grid;
-      gap: 1rem;
-      position: relative;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 12px;
-      top: 6px;
-      bottom: 6px;
-      width: 2px;
-      background: linear-gradient(var(--accent), rgba(255, 45, 45, 0.15));
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-left: 2.3rem;
-      background: #fff;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(17, 24, 39, 0.08);
-      padding-top: 0.95rem;
-      padding-right: 1rem;
-      padding-bottom: 0.95rem;
-      box-shadow: var(--shadow-card);
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: 5px;
-      top: 1.25rem;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: #fff;
-      border: 3px solid var(--accent);
-    }
-
-    .timeline-item h3 {
-      font-size: 1rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .timeline-item p {
-      color: var(--muted);
-      font-size: 0.93rem;
-    }
-
-    .postulate-card {
-      border-left: 5px solid var(--accent);
-    }
-
-    .reels-grid {
-      margin-top: 1.6rem;
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .reel-placeholder {
-      border-radius: var(--radius-md);
-      aspect-ratio: 9/16;
-      background: linear-gradient(145deg, #1f2937, #111827 46%, #2f3f54);
-      color: #fff;
-      padding: 0.8rem;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      font-weight: 700;
-      box-shadow: var(--shadow-card);
-    }
-
-    .reel-placeholder span {
-      font-size: 0.84rem;
-      opacity: 0.9;
-      font-weight: 500;
-    }
-
-    .media-box {
-      margin-top: 1.6rem;
-      background: #fff;
-      border: 1px solid rgba(17, 24, 39, 0.1);
+    .media-box,
+    .join-box,
+    .final-box {
+      margin-top: 1.4rem;
       border-radius: var(--radius-lg);
-      padding: 1.2rem;
-      box-shadow: var(--shadow-soft);
-      display: grid;
-      gap: 1rem;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      padding: clamp(1rem, 3vw, 1.6rem);
     }
 
-    .media-box .mail-link {
-      color: #b20000;
-      font-weight: 700;
-    }
-
-    .cta-final {
-      background: linear-gradient(120deg, #fff, #ffecec 55%, #fff9f9);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255, 45, 45, 0.18);
-      padding: clamp(1.3rem, 4vw, 2rem);
-      box-shadow: var(--shadow-soft);
-      text-align: center;
-    }
-
-    .cta-final h2 {
-      font-family: "Anton", sans-serif;
-      text-transform: uppercase;
-      font-size: clamp(1.8rem, 4vw, 3rem);
-      letter-spacing: 0.02em;
-      line-height: 1.04;
-      margin-bottom: 0.65rem;
-    }
-
-    .cta-final p {
+    .media-box p,
+    .join-box p,
+    .final-box p {
       color: #334155;
-      max-width: 65ch;
-      margin: 0 auto;
-      margin-bottom: 1rem;
+      max-width: 66ch;
+    }
+
+    .media-actions,
+    .join-actions {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .65rem;
+      align-items: center;
+    }
+
+    .mail { color: #9f1d1d; font-weight: 700; }
+
+    .join-count {
+      margin-top: .45rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(1.7rem, 5vw, 2.5rem);
+      color: var(--secondary);
+      font-weight: 700;
     }
 
     footer {
-      border-top: 1px solid rgba(17, 24, 39, 0.12);
-      padding: 2rem 0;
+      border-top: 1px solid var(--line);
+      padding: 1.9rem 0;
+      color: #374151;
+      font-size: .95rem;
     }
 
-    .footer-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      color: #374151;
-      font-size: 0.95rem;
+    .footer-grid {
+      display: grid;
+      gap: .45rem;
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transform: translateY(16px);
+      transition: opacity .6s ease, transform .6s ease;
     }
 
-    .reveal.is-visible {
+    .reveal.show {
       opacity: 1;
       transform: translateY(0);
     }
 
-    @media (min-width: 700px) {
-      .cards-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .media-box {
-        grid-template-columns: 1.4fr auto;
-        align-items: center;
-      }
-
-      .reels-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .footer-inner {
-        flex-direction: row;
-        align-items: center;
+    @media (min-width: 760px) {
+      .cards.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .footer-grid {
+        grid-template-columns: repeat(4, auto);
         justify-content: space-between;
+        align-items: center;
       }
     }
 
-    @media (min-width: 960px) {
-      section {
-        padding: 5rem 0;
-      }
-
-      .nav-links {
-        display: flex;
-      }
+    @media (min-width: 980px) {
+      .nav-links { display: flex; }
 
       .hero-grid {
-        grid-template-columns: 1.05fr 0.95fr;
+        grid-template-columns: 1.04fr .96fr;
         align-items: center;
-        gap: 2.8rem;
+        gap: 2.4rem;
       }
 
-      .hero-video {
-        order: 2;
-      }
-
-      .hero-content {
-        order: 1;
-      }
-
-      .cards-grid.columns-3 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .cards-grid.columns-4 {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
+      .hero-copy { order: 1; }
+      .hero-media { order: 2; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .btn,
-      .reveal {
-        transition: none;
-      }
+      html { scroll-behavior: auto; }
+      .btn, .reveal { transition: none; }
     }
+
+.petition {
+  background: #fff;
+  border-top: 1px solid #eee;
+}
+
+.petition-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.petition-inner {
+  display: grid;
+  gap: 40px;
+}
+
+.petition-left h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.petition-desc {
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.petition-goals {
+  margin: 16px 0;
+  padding-left: 18px;
+}
+
+.petition-goals li {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.petition-strong {
+  margin-top: 16px;
+  font-weight: 700;
+  color: #111;
+}
+
+/* FORM */
+
+.petition-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.petition-form input {
+  flex: 1;
+  min-width: 140px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.petition-form input:focus {
+  border-color: #ff3b30;
+  outline: none;
+}
+
+/* COUNTER */
+
+.petition-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.petition-counter span {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #ff3b30;
+}
+
+.petition-counter p {
+  color: #666;
+  font-weight: 600;
+}
+
+/* STATUS */
+
+.petition-status {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #444;
+}
+
+/* DESKTOP */
+
+@media (min-width: 768px) {
+  .petition-inner {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
   </style>
 </head>
 <body>
   <!-- NAVBAR -->
-  <header class="site-nav">
+  <header class="nav">
     <div class="container nav-inner">
-      <a href="#top" class="logo" aria-label="Przejdź na początek strony 3 Dziennie">3 <span>Dziennie</span></a>
-      <nav aria-label="Główna nawigacja">
+      <a class="logo" href="#top" aria-label="3 Dziennie — przejdź na początek">
+  <img src="logo.png" alt="3 Dziennie" />
+</a>
+      <nav aria-label="Nawigacja główna">
         <div class="nav-links">
-          <a href="#o-akcji" class="link">O akcji</a>
-          <a href="#co-zrobic" class="link">Co możesz zrobić</a>
-          <a href="#postulaty" class="link">Postulaty</a>
-          <a href="#media" class="link">Dla mediów</a>
+          <a href="#o-akcji">O akcji</a>
+          <a href="#co-zrobic">Co możesz zrobić</a>
+          <a href="#postulaty">Nasze postulaty</a>
+          <a href="#media">Dla mediów</a>
         </div>
       </nav>
-      <a href="#dolacz" class="btn btn-primary" aria-label="Dołącz do akcji 3 Dziennie">Dołącz</a>
+      <a class="btn btn-primary" href="#dolacz">Dołącz</a>
     </div>
   </header>
 
   <main id="top">
-    <!-- HERO -->
-    <section class="hero">
+    <!-- 1. HERO -->
+    <section>
       <div class="container hero-grid">
-        <div class="hero-video reveal">
-          <article class="reel-card" aria-label="Rolka startowa akcji">
-            <!-- Łatwa podmiana na video:
-            <video src="rolka.mp4" autoplay muted loop playsinline controls></video>
-            -->
-            <button class="play-btn" aria-label="Odtwórz rolkę startową" type="button">▶</button>
-            <div class="reel-meta">
-              <span class="reel-tag">Rolka startowa akcji</span>
-              <p class="reel-title">Dzisiaj 3 dzieci</p>
+        <div class="hero-media reveal">
+          <div class="phone-mockup" aria-label="Rolka startowa akcji 3 Dziennie">
+            <div class="reel">
+              <video autoplay muted loop playsinline aria-label="Wideo kampanii"></video>
+              <!-- Podmień na właściwy materiał:
+              <video src="rolka.mp4" autoplay muted loop playsinline controls></video>
+              lub
+              <iframe src="https://..." title="Rolka startowa" allowfullscreen></iframe>
+              -->
+              <div class="reel-overlay">
+                <small>Rolka startowa</small>
+                <strong>Dzisiaj 3 dzieci</strong>
+              </div>
             </div>
-          </article>
+          </div>
         </div>
 
-        <div class="hero-content reveal">
+        <div class="hero-copy reveal" id="o-akcji">
           <span class="eyebrow">Ruch społeczny #3Dziennie</span>
           <h1>3 dzieci dziennie</h1>
-          <p class="hero-subtitle">Codziennie około 3 dzieci w Polsce słyszy diagnozę nowotworu.</p>
-          <p class="hero-strong">Nie pozwólmy, żeby temat zniknął po jednym dniu.</p>
+          <p>Codziennie około 3 dzieci w Polsce słyszy diagnozę nowotworu.</p>
+          <p class="hero-emotion">Nie pozwólmy, żeby temat zniknął po jednym dniu.</p>
 
           <div class="hero-actions">
-            <a href="#co-zrobic" class="btn btn-primary">Zrób jedną rzecz</a>
-            <a href="#co-zrobic" class="btn btn-secondary">Zobacz jak pomóc</a>
+            <a class="btn btn-primary" href="#dolacz">Dołącz do akcji</a>
+            <a class="btn btn-secondary" href="#co-zrobic">Zobacz, jak pomóc</a>
           </div>
 
-          <div class="counter-grid" aria-live="polite">
-            <div class="counter-card">
-              <p>Dzień akcji</p>
-              <strong id="actionDay">1</strong>
+          <div class="counter-row" aria-live="polite">
+            <div class="counter">
+              <p>Dni od startu</p>
+              <strong id="dayCount">1</strong>
             </div>
-            <div class="counter-card">
-              <p>Szacunkowa liczba dzieci od startu</p>
-              <strong id="childrenCount">3</strong>
+            <div class="counter">
+              <p>Liczba dzieci (dni × 3)</p>
+              <strong id="childCount">3</strong>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- O AKCJI / DLACZEGO TO WAŻNE -->
-    <section id="o-akcji" class="section-alt">
+    <!-- 2. Dlaczego to ważne -->
+    <section class="section-alt">
       <div class="container">
         <span class="eyebrow reveal">Dlaczego to ważne</span>
-        <h2 class="section-title reveal">Ten temat nie może zniknąć po jednym poście</h2>
-        <p class="section-lead reveal">Akcja #3Dziennie ma utrzymać uwagę opinii publicznej i mediów na dzieciach oraz rodzinach, które codziennie zaczynają walkę z chorobą.</p>
+        <h2 class="section-title reveal">Każdy dzień bez uwagi to krok do zapomnienia</h2>
+        <p class="section-lead reveal">Chcemy, by emocja nie kończyła się po jednym dniu i zamieniała się w realną, społeczną presję na zmiany.</p>
 
-        <div class="cards-grid columns-3">
+        <div class="cards cols-3">
           <article class="card reveal">
-            <div class="num-badge" aria-hidden="true">01</div>
             <h3>To dzieje się codziennie</h3>
-            <p>To nie pojedyncza historia. To codzienna rzeczywistość rodzin, które potrzebują wsparcia od pierwszego dnia diagnozy.</p>
+            <p>To nie jednorazowa historia — codziennie kolejne rodziny słyszą tę samą diagnozę.</p>
           </article>
           <article class="card reveal">
-            <div class="num-badge" aria-hidden="true">02</div>
-            <h3>Jedna zbiórka nie wystarczy</h3>
-            <p>Potrzebny jest stały ruch społeczny: regularne udostępnienia, rozmowy i nacisk na systemowe rozwiązania.</p>
+            <h3>Rodziny zostają z tym same</h3>
+            <p>Po pierwszej fali emocji często zostają same z lękiem, kosztami i codzienną organizacją leczenia.</p>
           </article>
           <article class="card reveal">
-            <div class="num-badge" aria-hidden="true">03</div>
-            <h3>Zasięg może pomóc</h3>
-            <p>Każde udostępnienie zwiększa świadomość i szansę, że temat dotrze do mediów, decydentów i kolejnych osób gotowych działać.</p>
+            <h3>Zasięg może zamienić emocję w presję</h3>
+            <p>Gdy temat nie znika z feedu, trudniej go pominąć mediom i decydentom.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- CO MOŻESZ ZROBIĆ -->
+    <!-- 3. Co możesz zrobić -->
     <section id="co-zrobic">
       <div class="container">
         <span class="eyebrow reveal">Co możesz zrobić</span>
-        <h2 class="section-title reveal">4 kroki, które realnie zwiększają zasięg</h2>
+        <h2 class="section-title reveal">Trzy kroki. Jeden cel.</h2>
 
-        <div class="cards-grid columns-4">
+        <div class="cards cols-3">
           <article class="card reveal">
-            <div class="num-badge">1</div>
-            <h3>Udostępnij rolkę z #3Dziennie</h3>
-            <p>Niech ta informacja dotrze dalej niż do Twojego najbliższego kręgu.</p>
+            <div class="step">1</div>
+            <h3>Udostępnij rolkę</h3>
+            <p>Daj tematowi kolejne życie poza własnym profilem.</p>
           </article>
           <article class="card reveal">
-            <div class="num-badge">2</div>
+            <div class="step">2</div>
             <h3>Nagraj swoją wersję</h3>
-            <p>Powiedz jednym zdaniem, dlaczego ten temat jest ważny i oznacz akcję.</p>
+            <p>Jedno zdanie od Ciebie może zatrzymać czyjś scroll.</p>
           </article>
           <article class="card reveal">
-            <div class="num-badge">3</div>
+            <div class="step">3</div>
             <h3>Oznacz 2 osoby</h3>
-            <p>Zaproś kolejne osoby do działania — to prosty efekt łańcuchowy.</p>
-          </article>
-          <article class="card reveal">
-            <div class="num-badge">4</div>
-            <h3>Wróć i napisz „zrobione”</h3>
-            <p>Każdy komentarz buduje widoczność i pokazuje, że akcja trwa każdego dnia.</p>
-          </article>
-        </div>
-
-        <div class="copy-box reveal" aria-label="Gotowy tekst do skopiowania">
-          <p id="shareText">3 dzieci dziennie słyszy diagnozę nowotworu. Nie ignoruj. #3Dziennie</p>
-          <div>
-            <button class="btn btn-secondary" id="copyShareBtn" type="button">Kopiuj tekst</button>
-            <span class="copy-status" id="copyShareStatus" role="status" aria-live="polite"></span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- AKCJA TRWA -->
-    <section class="section-soft" id="timeline">
-      <div class="container">
-        <span class="eyebrow reveal">Akcja trwa</span>
-        <h2 class="section-title reveal">Każdy dzień buduje presję społeczną</h2>
-
-        <div class="timeline">
-          <article class="timeline-item reveal">
-            <h3>Dzień 1 — Start akcji</h3>
-            <p>Pierwsza publikacja, start hashtagu #3Dziennie i uruchomienie udostępnień.</p>
-          </article>
-          <article class="timeline-item reveal">
-            <h3>Dzień 2 — Pierwsze odpowiedzi</h3>
-            <p>Do akcji dołączają kolejne osoby i publikują własne rolki.</p>
-          </article>
-          <article class="timeline-item reveal">
-            <h3>Dzień 3 — Oznaczanie mediów</h3>
-            <p>Skoordynowane oznaczanie redakcji i twórców, aby temat dostał stałe miejsce w debacie.</p>
-          </article>
-          <article class="timeline-item reveal">
-            <h3>Dzień 7 — Podsumowanie tygodnia</h3>
-            <p>Zbiorczy raport działań i plan na kolejny tydzień akcji.</p>
+            <p>Niech akcja idzie dalej i wraca każdego dnia.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- POSTULATY -->
+    <!-- 4. Nasze postulaty -->
     <section id="postulaty" class="section-alt">
       <div class="container">
-        <span class="eyebrow reveal">Postulaty</span>
-        <h2 class="section-title reveal">Potrzebne są konkretne rozwiązania</h2>
+        <span class="eyebrow reveal">Nasze postulaty</span>
+        <h2 class="section-title reveal">Zmiana zaczyna się od konkretu</h2>
 
-        <div class="cards-grid columns-3">
-          <article class="card postulate-card reveal">
+        <div class="cards cols-3">
+          <article class="card reveal">
             <h3>Szybsza diagnostyka</h3>
-            <p>Krótka ścieżka diagnozy i szybszy dostęp do specjalistów pediatrycznych.</p>
+            <p>Krótsza droga od podejrzenia do pełnej diagnozy i leczenia.</p>
           </article>
-          <article class="card postulate-card reveal">
-            <h3>Wsparcie rodzin</h3>
-            <p>Realna pomoc psychologiczna, logistyczna i finansowa dla opiekunów dzieci.</p>
+          <article class="card reveal">
+            <h3>Realne wsparcie rodzin</h3>
+            <p>Stała pomoc psychologiczna, organizacyjna i finansowa.</p>
           </article>
-          <article class="card postulate-card reveal">
-            <h3>26 kwietnia — narodowy dzień świadomości</h3>
-            <p>Dzień świadomości i walki dzieci z nowotworami, obecny co roku w debacie publicznej.</p>
+          <article class="card reveal">
+            <h3>26 kwietnia jako dzień świadomości</h3>
+            <p>Coroczny punkt, który nie pozwoli tematowi znikać.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ZOBACZ AKCJĘ -->
-    <section id="zobacz-akcje">
-      <div class="container">
-        <span class="eyebrow reveal">Zobacz akcję</span>
-        <h2 class="section-title reveal">Miejsce na rolki społeczności</h2>
-        <p class="section-lead reveal">Poniżej placeholdery 9:16 do szybkiej podmiany na docelowe embedy i materiały video.</p>
-
-        <div class="reels-grid">
-          <article class="reel-placeholder reveal" aria-label="Placeholder rolki Dzień 1"><span>Rolka</span>Dzień 1</article>
-          <article class="reel-placeholder reveal" aria-label="Placeholder rolki Nie scrolluj"><span>Rolka</span>Nie scrolluj</article>
-          <article class="reel-placeholder reveal" aria-label="Placeholder rolki Jutro też"><span>Rolka</span>Jutro też</article>
-          <article class="reel-placeholder reveal" aria-label="Placeholder rolki #3Dziennie"><span>Rolka</span>#3Dziennie</article>
-          <article class="reel-placeholder reveal" aria-label="Placeholder rolki Reaguj"><span>Rolka</span>Reaguj</article>
-          <article class="reel-placeholder reveal" aria-label="Placeholder rolki Udostępnij"><span>Rolka</span>Udostępnij</article>
-        </div>
-      </div>
-    </section>
-
-    <!-- DLA MEDIÓW -->
-    <section id="media" class="section-soft">
+    <!-- 5. Dla mediów -->
+    <section id="media">
       <div class="container">
         <span class="eyebrow reveal">Dla mediów</span>
-        <h2 class="section-title reveal">Gotowy opis do cytowania</h2>
+        <h2 class="section-title reveal">Krótko i jasno</h2>
 
         <div class="media-box reveal">
-          <div>
-            <p id="pressText">„3 Dziennie” to społeczna akcja przypominająca, że w Polsce codziennie około 3 dzieci słyszy diagnozę nowotworu. Celem ruchu jest codzienne utrzymywanie tematu w przestrzeni publicznej i mobilizacja do prostych działań: udostępnienia, nagrania rolki i oznaczania kolejnych osób.</p>
-            <p style="margin-top:0.7rem;">Kontakt: <a class="mail-link" href="mailto:kontakt@3dziennie.pl">kontakt@3dziennie.pl</a></p>
-          </div>
-          <div style="display:grid; gap:0.6rem; min-width: 190px;">
-            <button class="btn btn-secondary" type="button" id="copyPressBtn">Kopiuj opis</button>
-            <a class="btn btn-primary" href="mailto:kontakt@3dziennie.pl?subject=3%20Dziennie%20%E2%80%94%20kontakt%20dla%20medi%C3%B3w">Kontakt dla mediów</a>
-            <span class="copy-status" id="copyPressStatus" role="status" aria-live="polite"></span>
+          <p>
+            „3 Dziennie” to oddolna akcja społeczna przypominająca, że codziennie około 3 dzieci
+            w Polsce słyszy diagnozę nowotworu. Celem jest utrzymanie tematu w debacie publicznej
+            i budowanie codziennej mobilizacji społecznej.
+          </p>
+          <div class="media-actions">
+            <a href="mailto:kontakt@3dziennie.pl" class="mail">kontakt@3dziennie.pl</a>
+            <a class="btn btn-primary" href="mailto:kontakt@3dziennie.pl?subject=3%20Dziennie%20-%20kontakt%20dla%20medi%C3%B3w">Skontaktuj się</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA KOŃCOWE -->
-    <section id="dolacz">
+<section id="petycja" class="section">
+  <div class="container">
+
+    <h2>PODPISZ PETYCJĘ</h2>
+    <p>
+      Celem tej petycji jest ustanowienie <strong>26 kwietnia</strong>
+      Narodowym Dniem Walki Dzieci z Nowotworami.
+    </p>
+
+    <form id="petitionForm" class="petition-form">
+      <input type="text" id="name" placeholder="Imię (np. Tomek)" required />
+      <input type="text" id="city" placeholder="Miasto (opcjonalnie)" />
+      <button type="submit" class="btn btn-primary">Podpisuję</button>
+    </form>
+
+    <div class="petition-stats">
+      <h3><span id="signatureCount">0</span> osób podpisało</h3>
+    </div>
+
+    <!-- 🔥 PRZYCISKI (TU DODANE) -->
+    <div class="petition-actions">
+
+      <button onclick="generatePDF()" class="btn btn-secondary">
+        Pobierz raport dla mediów
+      </button>
+
+      <a 
+        href="mailto:kontakt@sejm.gov.pl,sekretariat@mz.gov.pl?subject=Petycja 26 kwietnia – 3 Dziennie&body=Popieram ustanowienie 26 kwietnia Narodowym Dniem Walki Dzieci z Nowotworami.%0D%0A%0D%0AProszę o podjęcie działań legislacyjnych w tej sprawie."
+        class="btn btn-primary"
+      >
+        Wyślij do decydentów
+      </a>
+
+    </div>
+
+    <div id="recentSignatures" class="signatures-list"></div>
+
+    <p id="petitionStatus"></p>
+
+  </div>
+</section>
+
+    <!-- 7. Final CTA -->
+    <section>
       <div class="container">
-        <div class="cta-final reveal">
-          <h2>Nie musisz robić wszystkiego. Zrób jedną rzecz.</h2>
-          <p>Udostępnij, nagraj, oznacz, wyślij komuś link. Tyle wystarczy, żeby temat poszedł dalej.</p>
-          <a href="#co-zrobic" class="btn btn-primary">Dołącz do akcji</a>
+        <div class="final-box reveal">
+          <h2 class="section-title">Jedna rolka może zniknąć. Ruch może zostać.</h2>
+          <p>Udostępnij, nagraj, oznacz dalej. Największe zmiany zaczynają się od małej, codziennej konsekwencji.</p>
+          <div class="join-actions">
+            <a class="btn btn-primary" href="#dolacz">Dołącz do akcji</a>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer>
-    <div class="container footer-inner">
+    <div class="container footer-grid">
       <p><strong>#3Dziennie</strong></p>
       <p>3 dzieci dziennie. Reaguj.</p>
-      <p><a href="mailto:kontakt@3dziennie.pl" class="mail-link">kontakt@3dziennie.pl</a></p>
+      <p><a href="mailto:kontakt@3dziennie.pl">kontakt@3dziennie.pl</a></p>
       <p>© <span id="year"></span> 3 Dziennie</p>
     </div>
   </footer>
 
-  <script>
-    // --- Licznik od startu akcji ---
-    const startDate = new Date("2026-04-27T00:00:00");
-    const now = new Date();
-    const msPerDay = 1000 * 60 * 60 * 24;
-    const diffDays = Math.floor((now - startDate) / msPerDay);
-    const actionDay = Math.max(1, diffDays + 1);
-    const estimatedChildren = actionDay * 3;
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
-    document.getElementById("actionDay").textContent = actionDay.toLocaleString("pl-PL");
-    document.getElementById("childrenCount").textContent = estimatedChildren.toLocaleString("pl-PL");
+<script>
+const SUPABASE_URL = "https://bylkcovjqiodcfexdxia.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ5bGtjb3ZqcWlvZGNmZXhkeGlhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzcyNzg0MzgsImV4cCI6MjA5Mjg1NDQzOH0.8ZpSzW6Co6GKWPqO8bgCVDQ6l6lcrioxJvqZ6YfpCn0";
 
-    // --- Rok w stopce ---
-    document.getElementById("year").textContent = new Date().getFullYear();
+const supabase = window.supabaseClient 
+  || window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-    // --- Kopiowanie treści ---
-    async function copyText(text, statusEl) {
-      try {
-        await navigator.clipboard.writeText(text);
-        statusEl.textContent = "Skopiowano.";
-      } catch (error) {
-        statusEl.textContent = "Nie udało się skopiować. Skopiuj ręcznie.";
-      }
-      setTimeout(() => {
-        statusEl.textContent = "";
-      }, 2200);
+window.supabaseClient = supabase;
+// ===== LICZNIK DNI =====
+const startDate = new Date("2026-04-27T00:00:00");
+const now = new Date();
+const dayDiff = Math.max(1, Math.floor((now - startDate) / (1000*60*60*24)) + 1);
+
+document.getElementById("dayCount").textContent = dayDiff;
+document.getElementById("childCount").textContent = dayDiff * 3;
+
+// ===== LICZNIK PODPISÓW =====
+async function loadCount() {
+  const { data, error } = await supabase
+    .from("signatures")
+    .select("id");
+
+  if (!error && data) {
+    document.getElementById("signatureCount").textContent = data.length;
+  }
+}
+
+loadCount();
+
+// ===== DODANIE PODPISU =====
+document.getElementById("petitionForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  if (localStorage.getItem("signed")) {
+    document.getElementById("petitionStatus").textContent = "Już podpisałeś.";
+    return;
+  }
+
+  const name = document.getElementById("name").value.trim();
+  const city = document.getElementById("city").value.trim();
+
+  if (!name) return;
+
+  const { error } = await supabase.from("signatures").insert([
+    { name, city }
+  ]);
+
+  if (!error) {
+    localStorage.setItem("signed", "true");
+    document.getElementById("petitionStatus").textContent = "Podpis dodany.";
+    document.getElementById("petitionForm").reset();
+    loadCount();
+  } else {
+    document.getElementById("petitionStatus").textContent = "Błąd. Spróbuj ponownie.";
+  }
+});
+
+// ===== ROK =====
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// ===== REVEAL =====
+const revealElements = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      obs.unobserve(entry.target);
     }
+  });
+}, { threshold: 0.18 });
 
-    const copyShareBtn = document.getElementById("copyShareBtn");
-    const copyShareStatus = document.getElementById("copyShareStatus");
-    const shareText = document.getElementById("shareText").textContent;
+revealElements.forEach(el => observer.observe(el));
 
-    copyShareBtn.addEventListener("click", () => copyText(shareText, copyShareStatus));
+function generatePDF() {
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
 
-    const copyPressBtn = document.getElementById("copyPressBtn");
-    const copyPressStatus = document.getElementById("copyPressStatus");
-    const pressText = document.getElementById("pressText").textContent.replace(/[„”]/g, '"');
+  doc.setFont("Helvetica", "bold");
+  doc.setFontSize(18);
+  doc.text("3 Dziennie – raport dla mediów", 20, 20);
 
-    copyPressBtn.addEventListener("click", () => copyText(pressText, copyPressStatus));
+  doc.setFont("Helvetica", "normal");
+  doc.setFontSize(12);
 
-    // --- Subtelne animacje reveal on scroll ---
-    const revealItems = document.querySelectorAll(".reveal");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.18,
-      rootMargin: "0px 0px -20px 0px"
-    });
+  doc.text("Codziennie około 3 dzieci w Polsce słyszy diagnozę nowotworu.", 20, 40);
+  doc.text("Celem akcji jest utrzymanie tematu w debacie publicznej.", 20, 50);
+  doc.text("Postulat: ustanowienie 26 kwietnia dniem walki dzieci z rakiem.", 20, 60);
 
-    revealItems.forEach((item) => observer.observe(item));
-  </script>
+  doc.save("raport-3dziennie.pdf");
+}
+
+</script>
+
 </body>
 </html>
